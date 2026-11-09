@@ -15,7 +15,7 @@ cd superagent-playground
 
 ### 2. 安装依赖
 
-仓库中的[命令行计算器](#命令行计算器)位于 `calculator/` 目录，使用 Node.js 实现，零第三方依赖，无需执行 `npm install`。若后续其他项目在根目录添加了 `package.json`，再在仓库根目录执行：
+仓库中的[命令行计算器](#命令行计算器)位于 `calculator/` 目录，使用 Node.js 实现，零第三方依赖，无需执行 `npm install`。[贪吃蛇游戏](#贪吃蛇游戏java)位于 `snake/` 目录，使用 Java 标准库实现，无需安装第三方依赖（需要 JDK 8 或以上）。若后续其他项目在根目录添加了 `package.json`，再在仓库根目录执行：
 
 ```bash
 npm install
@@ -23,7 +23,7 @@ npm install
 
 ### 3. 本地运行
 
-本仓库没有需要构建或启动的应用程序，直接阅读 `README.md` 即可。如需通过本地服务器查看文件，可在仓库根目录执行：
+本仓库的项目都放在独立子目录中，按各自 README 运行即可：命令行计算器见[命令行计算器](#命令行计算器)，Java 贪吃蛇见[贪吃蛇游戏（Java）](#贪吃蛇游戏java)。如果只想通过本地服务器查看文件，可在仓库根目录执行：
 
 ```bash
 python3 -m http.server 8000
@@ -146,3 +146,17 @@ calculator/
 ├── test/cli.test.js         # 命令行与 REPL 集成测试
 └── package.json             # 零第三方依赖，npm start / npm test
 ```
+
+## 贪吃蛇游戏（Java）
+
+`snake/` 是一个使用 Java 标准库（Swing / AWT）实现的简易贪吃蛇游戏，零第三方依赖，需要 JDK 8 或以上。
+
+```bash
+$ cd snake
+$ javac SnakeGame.java
+$ java SnakeGame
+```
+
+方向键控制方向，空格暂停 / 继续，开始界面按空格或 Enter 开始。也可以从仓库根目录执行 `javac snake/SnakeGame.java && java -cp snake SnakeGame`。
+
+游戏规则、完整操作、自检命令和界面截图见 [snake/README.md](snake/README.md)。
