@@ -1,0 +1,16 @@
+{
+  "name": "superagent-cli-calculator",
+  "version": "1.0.0",
+  "description": "零第三方依赖的简易命令行计算器，支持四则运算、括号和交互式 REPL",
+  "private": true,
+  "bin": {
+    "calc": "bin/calc.js"
+  },
+  "scripts": {
+    "start": "node bin/calc.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
