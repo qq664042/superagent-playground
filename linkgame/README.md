@@ -2,6 +2,12 @@
 
 使用 Java 标准库（Swing / AWT）实现的简易连连看游戏，零第三方依赖，兼容 JDK 8 及以上。
 
+实际运行窗口：
+
+![运行窗口](screenshots/window.png)
+
+初始棋盘：
+
 ![初始棋盘](screenshots/board.png)
 
 ## 环境要求
