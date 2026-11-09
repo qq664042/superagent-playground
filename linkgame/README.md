@@ -20,7 +20,7 @@
 在仓库根目录执行：
 
 ```bash
-javac linkgame/Lianliankan.java
+javac -encoding UTF-8 linkgame/Lianliankan.java
 java linkgame.Lianliankan
 ```
 
@@ -62,7 +62,7 @@ java linkgame.Lianliankan
 `LianliankanTest.java` 不启动窗口，直接验证核心规则，适合在命令行或 CI 中运行：
 
 ```bash
-javac linkgame/Lianliankan.java linkgame/LianliankanTest.java
+javac -encoding UTF-8 linkgame/Lianliankan.java linkgame/LianliankanTest.java
 java linkgame.LianliankanTest
 ```
 

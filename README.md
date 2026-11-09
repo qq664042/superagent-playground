@@ -166,7 +166,7 @@ $ java SnakeGame
 `linkgame/` 是一个使用 Java 标准库（Swing / AWT）实现的简易连连看游戏，零第三方依赖，兼容 JDK 8 及以上。
 
 ```bash
-$ javac linkgame/Lianliankan.java
+$ javac -encoding UTF-8 linkgame/Lianliankan.java
 $ java linkgame.Lianliankan
 ```
 
