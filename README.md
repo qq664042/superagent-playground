@@ -160,3 +160,14 @@ $ java SnakeGame
 方向键控制方向，空格暂停 / 继续，开始界面按空格或 Enter 开始。也可以从仓库根目录执行 `javac snake/SnakeGame.java && java -cp snake SnakeGame`。
 
 游戏规则、完整操作、自检命令和界面截图见 [snake/README.md](snake/README.md)。
+
+## 连连看游戏（Java）
+
+`linkgame/` 是一个使用 Java 标准库（Swing / AWT）实现的简易连连看游戏，零第三方依赖，兼容 JDK 8 及以上。
+
+```bash
+$ javac linkgame/Lianliankan.java
+$ java linkgame.Lianliankan
+```
+
+用鼠标依次选中两个相同图案，路径拐点不超过 2 个即可消除并加分；`R` 重开一局，`Esc` 取消选择。完整玩法、连通规则、自检命令和界面截图见 [linkgame/README.md](linkgame/README.md)。
