@@ -48,7 +48,7 @@ java linkgame.Lianliankan
 | --- | --- |
 | ![连接路径](screenshots/path.png) | ![消除后](screenshots/cleared.png) |
 
-两张截图来自实际运行的 Swing 界面（同一窗口、同一随机棋盘，按 2 倍尺寸导出）。
+路径和消除后的截图来自实际运行的 Swing 界面（同一窗口、同一随机棋盘，按 2 倍尺寸导出）。
 
 ## 核心实现
 
