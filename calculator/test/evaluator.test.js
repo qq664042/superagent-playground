@@ -42,6 +42,8 @@ test('一元正负号', () => {
   assert.equal(evaluate('+4-+1'), 3);
   assert.equal(evaluate('(-2)*(-3)'), 6);
   assert.equal(evaluate('--2'), 2);
+  assert.equal(evaluate('1++2'), 3, '连续正号按一元正号解析');
+  assert.equal(evaluate('1+-2'), -1, '正负号按一元符号解析');
 });
 
 test('小数与空白字符', () => {
@@ -59,31 +61,30 @@ test('除法与除零错误', () => {
   assertCalcError(() => evaluate('2/-0'), /^除数不能为 0$/);
 });
 
-test('非法表达式给出清晰的中文错误', () => {
-  const cases = [
-    ['', /表达式不能为空/],
-    ['   ', /表达式不能为空/],
-    ['1+', /表达式不完整/],
-    ['*2', /运算符“\*”前缺少数字或括号/],
-    ['1+*2', /运算符“\*”前缺少数字或括号/],
-    ['(1+2', /缺少右括号/],
-    ['(', /缺少右括号/],
-    ['1+2)', /多余的右括号/],
-    ['()', /括号内缺少表达式/],
-    ['(1+)', /括号内缺少表达式/],
-    ['1 2', /缺少运算符/],
-    ['2(3+4)', /缺少运算符/],
-    ['1..2', /数字格式错误/],
-    ['2&3', /非法字符：“&”/],
-    ['hello', /非法字符：“h”/],
-  ];
+const invalidExpressionCases = [
+  ['', /表达式不能为空/],
+  ['   ', /表达式不能为空/],
+  ['1+', /表达式不完整/],
+  ['*2', /运算符“\*”前缺少数字或括号/],
+  ['1+*2', /运算符“\*”前缺少数字或括号/],
+  ['(1+2', /缺少右括号/],
+  ['(', /缺少右括号/],
+  ['1+2)', /多余的右括号/],
+  ['()', /括号内缺少表达式/],
+  ['(1+)', /括号内缺少表达式/],
+  ['1 2', /缺少运算符/],
+  ['2(3+4)', /缺少运算符/],
+  ['1..2', /数字格式错误/],
+  ['2&3', /非法字符：“&”/],
+  ['hello', /非法字符：“h”/],
+];
 
-  for (const [expression, pattern] of cases) {
-    test(`非法表达式 ${JSON.stringify(expression)}`, () => {
-      assertCalcError(() => evaluate(expression), pattern);
-    });
-  }
-});
+// 顶层参数化用例：避免在父 test() 内注册子测试造成的 cancelledByParent。
+for (const [expression, pattern] of invalidExpressionCases) {
+  test(`非法表达式 ${JSON.stringify(expression)}`, () => {
+    assertCalcError(() => evaluate(expression), pattern);
+  });
+}
 
 test('结果格式化', () => {
   assert.equal(formatNumber(7), '7');
